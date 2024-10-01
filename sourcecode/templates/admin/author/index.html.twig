@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% set title = 'Autores' %}
+
+{% block body %}
+    <div class="ms-sm-auto col-lg-12 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1>{{ title }}</h1>
+
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <a href="{{ path('app_admin_author_new') }}" type="button" class="btn btn-sm btn-outline-success">
+                        <span class="h6"><i class="fa fa-plus"></i> Adicionar autor</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <table class="table data-table table-striped data-tables">
+                            <thead>
+                            <tr>
+                                <th class="text-start">ID</th>
+                                <th>Foto de perfil</th>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th data-orderable="false" class="text-end">Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for author in authors %}
+
+                                <tr>
+                                    <td class="text-start">{{ author.id }}</td>
+                                    <td><img alt="{{ author.profilePicture }}" width="60px" height="60px" src="{{ asset('images/author/' ~ author.profilePicture) }}"/></td>
+                                    <td>{{ author.firstName }}</td>
+                                    <td>{{ author.lastName }}</td>
+                                    <td data-orderable="false" class="text-end">
+                                        <div class="btn-group" role="group">
+                                            {{ include('admin/author/_delete_form.html.twig', { author: author }) }}
+                                            <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}" type="button"
+                                               class="btn btn-sm btn-primary">Editar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

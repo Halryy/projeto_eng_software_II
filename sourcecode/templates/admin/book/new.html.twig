@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% set title = 'Adicionar novo livro' %}
+
+{% block body %}
+    <div class="ms-sm-auto col-lg-12 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1>{{ title }}</h1>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                {{ include('admin/book/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

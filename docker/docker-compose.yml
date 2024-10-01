@@ -1,0 +1,33 @@
+services:
+  app:
+    image: appix/tamar:1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: biblioteca_php
+    restart: unless-stopped
+    networks:
+      default:
+        ipv4_address: 172.16.0.22
+    volumes:
+      - ../sourcecode:/var/www
+
+  web:
+    image: nginx:latest
+    container_name: biblioteca_nginx
+    restart: unless-stopped
+    ports:
+      - "9090:80"
+    networks:
+      default:
+        ipv4_address: 172.16.0.23
+    volumes:
+      - ../sourcecode:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+networks:
+  default:
+    external: true
+    name: docker-nw

@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+<div class="row align-items-center">
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.title) }}
+    </div>
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.isbn) }}
+    </div>
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.numberOfPages) }}
+    </div>
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.language) }}
+    </div>
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.availableQuantity) }}
+    </div>
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.publisher) }}
+    </div>
+    <div class="col-sm-12 col-md-12">
+        {{ form_row(form.authors) }}
+    </div>
+</div>
+<div class="card-footer bg-transparent">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 text-start">
+            <a href="{{ path('app_admin_author_index') }}" class="btn btn-sm btn-outline-dark text-start">Voltar à lista</a>
+        </div>
+        <div class="col-sm-12 col-md-6 text-end">
+            <button type="submit" class="btn btn-sm btn-success text-end">Salvar</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

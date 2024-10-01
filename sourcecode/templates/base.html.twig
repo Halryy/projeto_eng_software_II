@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Biblioteca{% endblock %}</title>
+    <link href="{{ asset('biblioteca/bootstrap@5.3/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('biblioteca/fontawesome@5.15.4/css/all.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('biblioteca/datatables@2.1.7/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('biblioteca/datatables@2.1.7/bootstrap5/datatables.bootstrap5.css') }}" rel="stylesheet">
+    <link href="{{ asset('biblioteca/datatables@2.1.7/responsive@3.0.3/css/responsive.bootstrap5.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('biblioteca/datatables@2.1.7/fixedcolumns@5.0.2/css/fixedColumns.bootstrap5.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('biblioteca/bootstrap-tagsinput@0.8/bootstrap-tagsinput.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('biblioteca/bsmultiselect@1.2.0-beta.27/bootstrap-select.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('biblioteca/theme/style.css') }}" rel="stylesheet">
+    <style>
+        .sidebar-item > .sidebar-link {
+            padding-left: 15px;
+        }
+
+        .sidebar-dropdown .sidebar-item > .sidebar-link {
+            padding-left: 30px;
+        }
+
+        .submenu-bg-darken .sidebar-item > .sidebar-link {
+            padding-left: 45px;
+        }
+
+        .form-label {
+            color: var(--bs-body-color) !important;
+        }
+    </style>
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+<div class="wrapper">
+    <aside id="sidebar" class="expand">
+        <div class="d-flex">
+            <button id="lateral-menu-btn" class="toggle-btn" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="sidebar-logo">
+                <a href="#">Biblioteca</a>
+            </div>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="{{ path('app_admin_author_index') }}" class="sidebar-link">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Autores</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="{{ path('app_admin_book_index') }}" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    <span>Livros</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <div id="content" class="main" style="font-family: sans-serif; font-size: 15px;">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
+
+<script src="{{ asset('biblioteca/jquery@3.7.1/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('biblioteca/bootstrap@5.3/bootstrap.bundle.min.js') }}"></script>
+
+<script src="{{ asset('biblioteca/datatables@2.1.7/datatables.min.js') }}"></script>
+<script src="{{ asset('biblioteca/datatables@2.1.7/bootstrap5/datatables.bootstrap5.js') }}"></script>
+<script src="{{ asset('biblioteca/datatables@2.1.7/responsive@3.0.3/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('biblioteca/datatables@2.1.7/responsive@3.0.3/js/responsive.bootstrap5.js') }}"></script>
+<script src="{{ asset('biblioteca/datatables@2.1.7/fixedcolumns@5.0.2/js/dataTables.fixedColumns.js') }}"></script>
+<script src="{{ asset('biblioteca/datatables@2.1.7/fixedcolumns@5.0.2/js/fixedColumns.dataTables.js') }}"></script>
+
+<script src="{{ asset('biblioteca/fontawesome@5.15.4/js/all.min.js') }}"></script>
+<script src="{{ asset('biblioteca/bootstrap-tagsinput@0.8/bootstrap-tagsinput.min.js') }}"></script>
+<script src="{{ asset('biblioteca/popperjs-core@2.11.8/popper.min.js') }}"></script>
+<script src="{{ asset('biblioteca/bsmultiselect@1.2.0-beta.27/bootstrap-select.min.js') }}"></script>
+
+<script src="{{ asset('biblioteca/theme/script.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>
