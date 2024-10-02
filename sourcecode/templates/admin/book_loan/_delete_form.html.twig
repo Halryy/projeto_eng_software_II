@@ -1,0 +1,5 @@
+<form id="delete-book-loan-btn-form" method="post" action="{{ path('app_admin_book_loan_delete', {'id': book_loan.id}) }}"
+      onsubmit='return confirm("Deseja apagar o empréstimo do cliente {{ book_loan.client.firstName ~ " do livro " ~ book_loan.book.title }}? A ação é irreversível!");'>
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ book_loan.id) }}">
+    <button class="btn btn-sm btn-danger">Deletar</button>
+</form>

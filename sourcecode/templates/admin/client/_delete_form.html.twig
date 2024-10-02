@@ -1,0 +1,5 @@
+<form id="delete-client-btn-form" method="post" action="{{ path('app_admin_client_delete', {'id': client.id}) }}"
+      onsubmit='return confirm("Deseja apagar o cliente \"{{ client.firstName ~ " " ~ client.lastName }}\"? A ação é irreversível!");'>
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ client.id) }}">
+    <button class="btn btn-sm btn-danger">Deletar</button>
+</form>

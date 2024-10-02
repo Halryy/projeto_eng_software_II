@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set title = 'Livros' %}
+{% set title = 'Clientes' %}
 
 {% block body %}
     <div class="ms-sm-auto col-lg-12 px-md-4">
@@ -9,8 +9,8 @@
 
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <a href="{{ path('app_admin_book_new') }}" type="button" class="btn btn-sm btn-outline-success">
-                        <span class="h6"><i class="fa fa-plus"></i> Adicionar livro</span>
+                    <a href="{{ path('app_admin_client_new') }}" type="button" class="btn btn-sm btn-outline-success">
+                        <span class="h6"><i class="fa fa-plus"></i> Adicionar Cliente</span>
                     </a>
                 </div>
             </div>
@@ -24,29 +24,27 @@
                             <thead>
                             <tr>
                                 <th class="text-start">ID</th>
-                                <th>Título</th>
-                                <th>ISBN</th>
-                                <th>Número de Páginas</th>
-                                <th>Quantidade Disponível</th>
-                                <th>Idioma</th>
-                                <th>Editora</th>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th>Data de Nascimento</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
                                 <th data-orderable="false" class="text-end">Ações</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for book in books %}
+                            {% for client in clients %}
                                 <tr>
-                                    <td class="text-start">{{ book.id }}</td>
-                                    <td>{{ book.title }}</td>
-                                    <td>{{ book.isbn }}</td>
-                                    <td>{{ book.numberOfPages }}</td>
-                                    <td>{{ book.availableQuantity }}</td>
-                                    <td>{{ book.language }}</td>
-                                    <td>{{ book.publisher }}</td>
+                                    <td class="text-start">{{ client.id }}</td>
+                                    <td>{{ client.firstName }}</td>
+                                    <td>{{ client.lastName }}</td>
+                                    <td>{{ client.dateOfBirth ? client.dateOfBirth|date('Y-m-d') : '' }}</td>
+                                    <td>{{ client.email }}</td>
+                                    <td>{{ client.phoneNumber }}</td>
                                     <td data-orderable="false" class="text-end">
                                         <div class="btn-group" role="group">
-                                            <a href="{{ path('app_admin_book_edit', {'id': book.id}) }}" class="btn btn-sm btn-primary">Editar</a>
-                                            {{ include('admin/book/_delete_form.html.twig', { book: book }) }}
+                                            <a href="{{ path('app_admin_client_edit', {'id': client.id}) }}" class="btn btn-sm btn-primary">Editar</a>
+                                            {{ include('admin/client/_delete_form.html.twig', { client: client }) }}
                                         </div>
                                     </td>
                                 </tr>
